@@ -14,7 +14,7 @@ def expand_to_absolute(path):
     if './' == path[:2]:
         return os.path.join(os.path.dirname(os.path.realpath(__file__)), path[2:])
     else:
-        return path
+        return os.path.expanduser(path)
 
 DATA_PATH = expand_to_absolute(cfg['paths']['data_path'])
 BASE_SEED = int(cfg['seeds']['seed'])
